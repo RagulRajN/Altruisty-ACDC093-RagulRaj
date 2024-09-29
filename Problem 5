@@ -1,0 +1,30 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+   int trainee[3] ={0,0,0};
+   
+   int n;
+   for(int i=0;i<9;i++){
+       cin>>n;
+       trainee[i%3]+=n;
+   }
+   
+   for(int i=0;i<3;i++){
+       trainee[i]/=3;
+   }
+   
+   int m = 0;
+   
+   for(int i=0;i<3;i++){
+       m = max(m,trainee[i]);
+   }
+   
+   if(m < 70) cout<<"All trainees are unfit";
+   else {
+       for(int i=0;i<3;i++){
+           if(m == trainee[i]) cout<<"Trainee Number : "<<i+1<<endl;
+       }
+   }
+   return 0;
+}
