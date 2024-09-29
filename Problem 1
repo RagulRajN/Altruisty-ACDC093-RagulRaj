@@ -1,0 +1,29 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+   int n;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++) cin>>arr[i];
+   
+   int buy = INT_MAX;
+   int buyind = 0;
+   
+   for(int i=0;i<n;i++){
+       if(buy > arr[i]){
+           buy = arr[i];
+           buyind = i;
+       }
+   }
+   
+   int sell = 0;
+   for(int i=buyind+1;i<n;i++){
+       if(sell < arr[i]) sell = arr[i];
+   }
+   
+   if(sell != 0) cout<<"profit : "<<sell - buy;
+   else cout<<"Ratan never bought";
+
+    return 0;
+}
