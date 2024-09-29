@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string s;
+    cin>>s;
+    int n;
+    cin>>n;
+    int start[n];
+    for(int i=0;i<n;i++) cin>>start[i];
+    int end[n];
+    for(int i=0;i<n;i++) cin>>end[i];
+    
+    cout<<"OutPut"<<endl;
+    
+    int linecount = 0;
+    int count = 0;
+    for(int i=0;i<n;i++){
+        linecount = 0;
+        int outcount = 0;
+        count = 0;
+        for(int j=start[i]-1;j<end[i];j++){
+                if(s[j] == '*') count++;
+            if(s[j] == '|' && linecount>0){
+                outcount+=count;
+                count = 0;
+        }
+        if(s[j] == '|') linecount++;
+        }
+        cout<<outcount<<endl;
+    }
+
+    return 0;
+}
