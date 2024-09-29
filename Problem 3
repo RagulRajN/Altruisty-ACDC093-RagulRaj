@@ -1,0 +1,26 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int x ;
+    cin>>x;
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++) cin>>arr[i];
+    
+    int tot = 0;
+    int maxtot = 0;
+    for(int i=0;i<x;i++){
+        tot+=arr[i];
+    }
+    int k = 0;
+    maxtot = tot;
+    for(int i=x;i<n;i++){
+        tot = tot + arr[i] - arr[k++];
+        maxtot = max(maxtot,tot);
+    }
+    
+    cout<<"Output : "<<maxtot;
+     return 0;
+}
